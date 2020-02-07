@@ -1,0 +1,20 @@
+﻿body {
+    background-image: url('image\image.jpg');
+    background-repeat: no-repeat;
+    background: fixed;
+}
+
+.Master {
+    color:maroon;
+    text-align:center;
+}
+
+.font {
+    font-family:Cambria;
+    font-style: italic;
+}
+
+.SignIn {
+    color: black;
+    text-align: center;
+}

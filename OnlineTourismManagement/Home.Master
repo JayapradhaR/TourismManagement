@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="OnlineTourismManagement.Home" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="Styles.css" />
+    <form id="homePage" runat="server">
+        <div>
+            <div class="Master">
+                <h1 class="font">TIME TO TOUR</h1>
+                <asp:HyperLink ID="linkSignIn" runat="server" Text="Sign In" NavigateUrl="~/LoginForm.aspx"></asp:HyperLink>&nbsp
+                <asp:HyperLink ID="linkSignUp" runat="server" Text="Sign Up" NavigateUrl="~/SignUpForm.aspx"></asp:HyperLink>&nbsp
+                <asp:HyperLink ID="linkAddPackage" runat="server" Text="Package" NavigateUrl="~/AddPackage.aspx"></asp:HyperLink>
+            </div>
+            <h4 class="Master">TRAVEL YOUR WAY</h4>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
