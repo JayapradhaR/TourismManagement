@@ -112,8 +112,6 @@
     <Compile Include="StartMaster.aspx.designer.cs">
       <DependentUpon>StartMaster.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserDetails.cs" />
-    <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Home.Master" />
@@ -125,7 +123,24 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TourismManagementBL\TourismManagement.BL.csproj">
+      <Project>{e930416d-d74b-4005-a137-6136aca939c6}</Project>
+      <Name>TourismManagement.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TourismManagementCommom\TourismManagement.Commom.csproj">
+      <Project>{72321869-6056-490c-a1e2-c03d26f0007d}</Project>
+      <Name>TourismManagement.Commom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TourismManagementDAL\TourismManagement.DAL.csproj">
+      <Project>{7694c957-89e1-4502-b14f-58fc8d8953fb}</Project>
+      <Name>TourismManagement.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TourismManagementEntity\TourismManagement.Entity.csproj">
+      <Project>{6d16722c-cd41-434a-a90f-8cf25f1c4447}</Project>
+      <Name>TourismManagement.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

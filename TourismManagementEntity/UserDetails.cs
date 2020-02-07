@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace OnlineTourismManagement
 {
@@ -19,7 +16,7 @@ namespace OnlineTourismManagement
         public int Role { get; set; }
         public UserDetails()
         { }
-        public UserDetails(string firstName, string lastName, long mobileNumber, DateTime dateOfBirth,string gender, string mailId, string password,int roleId)
+        public UserDetails(string firstName, string lastName, long mobileNumber, DateTime dateOfBirth, string gender, string mailId, string password, int roleId)
         {
             FirstName = firstName;
             LastName = lastName;
