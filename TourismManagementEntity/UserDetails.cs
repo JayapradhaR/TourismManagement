@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OnlineTourismManagement
+namespace TourismManagement.Entity
 {
     public class UserDetails
     {

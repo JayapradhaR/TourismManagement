@@ -1,7 +1,9 @@
 ﻿using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
-namespace OnlineTourismManagement
+using TourismManagement.Entity;
+
+namespace TourismManagement.DAL
 {
     public static class AdminRepository
     {
@@ -42,6 +44,20 @@ namespace OnlineTourismManagement
                 connection.Open();
                 command.ExecuteNonQuery();
                 connection.Close();
+            }
+        }
+        public static void InsertPackage(Package package)
+        {
+            string procedure = "usp_Package_Add";
+            using(SqlCommand command=new SqlCommand(procedure,connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                //command.Parameters.AddWithValue("@packageId",package.PackageId);
+                command.Parameters.AddWithValue("@packageName", package.PackageName);
+                command.Parameters.AddWithValue("@packageType", package.PackageType);
+                command.Parameters.AddWithValue("@packagePrice", package.PackagePrice);
+                connection.Open();
+                command.ExecuteNonQuery();
             }
         }
     }

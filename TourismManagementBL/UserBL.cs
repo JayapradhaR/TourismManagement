@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TourismManagement.DAL;
+using TourismManagement.Entity;
 
-namespace TourismManagementBL
+namespace TourismManagement.BL
 {
-    public class UserBL
+    public static class UserBL
     {
-
+        public static int AddUser(UserDetails user)
+        {
+            return UserRepository.AddCustomer(user);
+        }
+        public static bool LoginValidation(string username,string password)
+        {
+            return UserRepository.ValidateLogin(username, password);
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using TourismManagement.BL;
 namespace OnlineTourismManagement
 {
     public partial class LoginForm : System.Web.UI.Page
@@ -13,12 +13,11 @@ namespace OnlineTourismManagement
         {
             string username = textUserId.Text;
             string password = textPassword.Text;
-            UserRepository user = new UserRepository();
-            bool isValid = user.ValidateLogin(username, password);
+            bool isValid = UserBL.LoginValidation(username, password);
             if (isValid)
                 Response.Write("Sign in successfully completed");
             else
-                Response.Write("Sign in not completed..Please create your account or check your password");
+                Response.Write("Sign in not completed...Check your username or password");
         }
 
         protected void SignUp_Click(object sender, EventArgs e)

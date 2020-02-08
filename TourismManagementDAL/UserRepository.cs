@@ -1,13 +1,15 @@
 ﻿using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
-namespace OnlineTourismManagement
+using TourismManagement.Entity;
+
+namespace TourismManagement.DAL
 {
-    public class UserRepository : UserDetails
+    public static class UserRepository
     {
-        SqlConnection connection;
-        string connectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-        public int AddCustomer(UserDetails user)
+        static SqlConnection connection;
+        static string connectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
+        static public int AddCustomer(UserDetails user)
         {
             string procedure = "usp_Customer_Signup";
             int rows;
@@ -71,7 +73,7 @@ namespace OnlineTourismManagement
             }
             return rows;
         }
-        public bool ValidateLogin(string username, string password)
+        static public bool ValidateLogin(string username, string password)
         {
             bool isValue = false;
             string procedure = "usp_Customer_Signin";
@@ -90,6 +92,11 @@ namespace OnlineTourismManagement
                 param.Value = password;
                 param.SqlDbType = SqlDbType.VarChar;
                 command.Parameters.Add(param);
+
+                //param = new SqlParameter();
+                //param.ParameterName = "@customerRole";
+                //param.Direction = ParameterDirection.Output;
+                //command.Parameters.Add(param);
 
                 connection.Open();
                 SqlDataReader data = command.ExecuteReader();

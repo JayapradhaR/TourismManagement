@@ -2,6 +2,8 @@
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using TourismManagement.BL;
+using TourismManagement.Entity;
 
 namespace OnlineTourismManagement
 {
@@ -16,7 +18,7 @@ namespace OnlineTourismManagement
         }
         protected void BindData()
         {
-            DataTable table = AdminRepository.ViewPackage();
+            DataTable table = PackageBL.ShowPackage();
             GridPackageDetails.DataSource = table;
             GridPackageDetails.DataBind();
         }
@@ -30,7 +32,7 @@ namespace OnlineTourismManagement
         protected void PackageDetails_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int packageId = Convert.ToInt16(GridPackageDetails.DataKeys[e.RowIndex].Values["PackageId"].ToString());
-            AdminRepository.DeletePackage(packageId);
+            PackageBL.DeletePackage(packageId);
             BindData();
         }
 
@@ -47,25 +49,22 @@ namespace OnlineTourismManagement
             string priceValue = price.Text;
             int packagePrice = Convert.ToInt16((priceValue.ToString()));
             int packageId = Convert.ToInt16(GridPackageDetails.DataKeys[e.RowIndex].Values["PackageId"].ToString());
-            AdminRepository.UpdatePackage(packageId, packagePrice);
+            PackageBL.UpdatePackage(packageId, packagePrice);
             GridPackageDetails.EditIndex = -1;
             BindData();
 
         }
-
-        protected void GridPackageDetails_RowCreated(object sender, GridViewRowEventArgs e)
+        protected void linkInsert_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void GridPackageDetails_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-
-        }
-
-        protected void GridPackageDetails_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            TextBox name =(GridPackageDetails.FooterRow.FindControl("txtPackageName") as TextBox);
+            TextBox type= (GridPackageDetails.FooterRow.FindControl("txtPackageType") as TextBox);
+            TextBox price = GridPackageDetails.FooterRow.FindControl("txtPackagePrice") as TextBox;
+            string packageName = name.Text;
+            string packageType = type.Text;
+            int packagePrice= Convert.ToInt32((price.Text).ToString());
+            Package package = new Package(packageName, packageType, packagePrice);
+            PackageBL.InsertPackage(package);
+            BindData();
         }
     }
 }

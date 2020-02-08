@@ -1,5 +1,6 @@
 ﻿using System;
-
+using TourismManagement.BL;
+using TourismManagement.Entity;
 namespace OnlineTourismManagement
 {
     public partial class SignUpForm : System.Web.UI.Page
@@ -24,8 +25,7 @@ namespace OnlineTourismManagement
             string password = textPassword.Text;
             int roleId = int.Parse(textRoleId.Text);
             UserDetails userDetails = new UserDetails(firstName, lastName, mobileNumber, DOB, gender, mailId, password,roleId);
-            UserRepository user = new UserRepository();
-            int rows = user.AddCustomer(userDetails);
+            int rows = UserBL.AddUser(userDetails);
             if (rows >= 1)
                 Response.Redirect("LoginForm.aspx");
         }
