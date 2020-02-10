@@ -29,7 +29,7 @@ namespace OnlineTourismManagement
             BindData();
         }
 
-        protected void PackageDetails_RowDeleting(object sender, GridViewDeleteEventArgs e)
+         protected void PackageDetails_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int packageId = Convert.ToInt16(GridPackageDetails.DataKeys[e.RowIndex].Values["PackageId"].ToString());
             PackageBL.DeletePackage(packageId);

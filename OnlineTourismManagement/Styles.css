@@ -1,20 +1,13 @@
-﻿body {
-    background-image: url('image\image.jpg');
+﻿.image {
+    background-image: url('image/TourismManagement.jpg');
     background-repeat: no-repeat;
-    background: fixed;
-}
-
-.Master {
-    color: maroon;
+    background-size: cover;
     text-align: center;
 }
-
-.font {
-    font-family: Cambria;
-    font-style: italic;
+.master {
+    text-align:right;
 }
+#title{
+    text-align:center;
 
-.SignIn {
-    color: black;
-    text-align: center;
 }

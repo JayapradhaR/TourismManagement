@@ -5,23 +5,24 @@
 <html>
 <head runat="server">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="Styles.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <link rel="stylesheet" type="text/css" href="Styles.css" />
+<body class="image">
     <form id="homePage" runat="server">
         <div>
-            <div class="Master">
-                <h1 class="font">TIME TO TOUR</h1>
+              <h3><b>TIME TO TOUR </b></h3>
+            <div  class="master">    
+                <asp:HyperLink ID="linkHome" runat="server" Text="Home" NavigateUrl="~/StartMaster.aspx"></asp:HyperLink>&nbsp
                 <asp:HyperLink ID="linkSignIn" runat="server" Text="Sign In" NavigateUrl="~/LoginForm.aspx"></asp:HyperLink>&nbsp
                 <asp:HyperLink ID="linkSignUp" runat="server" Text="Sign Up" NavigateUrl="~/SignUpForm.aspx"></asp:HyperLink>&nbsp
                 <asp:HyperLink ID="linkAddPackage" runat="server" Text="Package" NavigateUrl="~/PackageDetails.aspx"></asp:HyperLink>
             </div>
-            <h4 class="Master">TRAVEL YOUR WAY</h4>
+            <h4>TRAVEL YOUR WAY</h4>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
-        </div>
+        </h3>
     </form>
 </body>
 </html>

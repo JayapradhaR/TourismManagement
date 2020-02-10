@@ -68,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="image\image.jpg" />
+    <Content Include="image\OnlineTourismManagement.jpg" />
+    <Content Include="image\Tourism.jpg" />
+    <Content Include="image\TourismManagement.jpg" />
     <Content Include="LoginForm.aspx" />
     <Content Include="PackageDetails.aspx" />
     <Content Include="SignUpForm.aspx" />

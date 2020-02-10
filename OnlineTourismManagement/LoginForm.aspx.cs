@@ -17,7 +17,7 @@ namespace OnlineTourismManagement
             if (isValid)
                 Response.Write("Sign in successfully completed");
             else
-                Response.Write("Sign in not completed...Check your username or password");
+                Response.Write("<script language='javascript' > window.alert('Sign in not completed...Check your username or password'); window.location='LoginForm.aspx';</script>");
         }
 
         protected void SignUp_Click(object sender, EventArgs e)

@@ -2,19 +2,21 @@
 using System.Data.SqlClient;
 using System.Data;
 using TourismManagement.Entity;
+using System;
 
 namespace TourismManagement.DAL
 {
     public static class AdminRepository
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
-        static SqlConnection connection = connection = new SqlConnection(connectionString);
+        static SqlConnection connection;
         public static DataTable ViewPackage()
         {
             string procedure = "usp_Package_View";
             DataTable table;
-            using (SqlCommand command = new SqlCommand(procedure, connection))
+            using (connection = new SqlConnection(connectionString))
             {
+                SqlCommand command = new SqlCommand(procedure, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                 table = new DataTable();
@@ -25,8 +27,9 @@ namespace TourismManagement.DAL
         public static void DeletePackage(int packageId)
         {
             string procedure = "usp_Package_Delete";
-            using (SqlCommand command = new SqlCommand(procedure, connection))
+            using (connection = new SqlConnection(connectionString))
             {
+                SqlCommand command = new SqlCommand(procedure, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@packageId", packageId);
                 connection.Open();
@@ -36,8 +39,9 @@ namespace TourismManagement.DAL
         public static void UpdatePackage(int packageId, int packagePrice)
         {
             string procedure = "usp_Package_Update";
-            using (SqlCommand command = new SqlCommand(procedure, connection))
+            using (connection = new SqlConnection(connectionString))
             {
+                SqlCommand command = new SqlCommand(procedure, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@packageId", packageId);
                 command.Parameters.AddWithValue("@packagePrice", packagePrice);
@@ -49,8 +53,9 @@ namespace TourismManagement.DAL
         public static void InsertPackage(Package package)
         {
             string procedure = "usp_Package_Add";
-            using(SqlCommand command=new SqlCommand(procedure,connection))
+            using (connection = new SqlConnection(connectionString))
             {
+                SqlCommand command = new SqlCommand(procedure, connection);
                 command.CommandType = CommandType.StoredProcedure;
                 //command.Parameters.AddWithValue("@packageId",package.PackageId);
                 command.Parameters.AddWithValue("@packageName", package.PackageName);

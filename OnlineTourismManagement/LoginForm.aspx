@@ -2,16 +2,18 @@
 
 <asp:Content ID="contentHead" runat="server" ContentPlaceHolderID="head">
 </asp:Content>
-<asp:Content ID="contentPlaceHolderLogin" runtat="server" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
-    <div class="SignIn">
-        <table align="Center";>
+<asp:Content ID="contentPlaceHolderLogin" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+    <div>
+        <table align="Center">
             <tr>
-                <td><asp:Label ID="labelUsername" Text= "Username" runat="server"></asp:Label></td>
+                <td>
+                    <asp:Label ID="labelUsername" Text="Username" runat="server"></asp:Label></td>
                 <td>
                     <asp:TextBox runat="server" ID="textUserId" placeholder="Enter your mail id"></asp:TextBox></td>
             </tr>
             <tr>
-                <td><asp:Label ID="labelPassword" Text="Password" runat="server"></asp:Label></td>
+                <td>
+                    <asp:Label ID="labelPassword" Text="Password" runat="server"></asp:Label></td>
                 <td>
                     <asp:TextBox runat="server" ID="textPassword" TextMode="Password" placeholder="Enter your password"></asp:TextBox></td>
             </tr>
